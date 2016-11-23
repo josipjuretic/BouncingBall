@@ -19,6 +19,7 @@ namespace Vsite.Pood.BouncingBall
             return velocity.GetNewPosition(startingPoint, seconds);
         }
 
+
         private Velocity velocity;
         private PointD startingPoint;
         private DateTime startingTime;

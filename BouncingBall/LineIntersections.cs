@@ -21,6 +21,16 @@ namespace Vsite.Pood.BouncingBall
             return new PointD(x, y);
         }
 
-        private Line line0;
+        private IEnumerable<CollisionPoint> GetCollisionPoints (IEnumerable<CollisionPlane> planes)
+        {
+            List<CollisionPoint> collisionPoints = new List<CollisionPoint>();
+            foreach (CollisionPlane plane in planes)
+            {
+                PointD intersection = GetIntersection(plane);
+                if (intersection is null)
+                    collsionPoints.Add(new CollisionPoint(plane, intersection));
+            }
+            return collisionPoints;
+        }
     }
 }
